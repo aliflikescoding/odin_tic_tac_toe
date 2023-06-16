@@ -31,6 +31,11 @@ class User
     end
   end
 
+  # method to check weather or not this space is avaible or not
+  def check_space(user, row, col)
+    check = (user.pick[row][col]).zero ? true : false
+  end
+
   # method to choose the space
   def choose_space
     puts 'please enter your row number'
