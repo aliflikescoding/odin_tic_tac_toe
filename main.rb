@@ -36,6 +36,11 @@ class User
     check = (user.pick[row][col]).zero ? true : false
   end
 
+  # method to check weather the number is between 1 and 3
+  def check_num(num)
+    x = num >= 3 && num <= 1 ? true : false
+  end
+
   # method to choose the space
   def choose_space
     puts 'please enter your row number'
