@@ -36,6 +36,7 @@ def available(user, num_row, num_col)
 end
 
 # method to choose the space
+space_count = 0
 def choose_space(our_user, opposing_user)
   loop do
     puts "it is #{our_user.name}'s turn"
@@ -44,6 +45,7 @@ def choose_space(our_user, opposing_user)
 
     if available(opposing_user, num_row, num_col)
       our_user.pick[num_row][num_col] = 1
+      space_count++
       break
     else
       puts "\n**row #{num_row+1} and column #{num_col+1} are already taken please choose another**\n\n"
