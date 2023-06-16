@@ -5,11 +5,14 @@ name_user2 = gets.chomp
 
 # the user class
 class User
+  attr_accessor :name, :pick, :win
+
   def initialize(name)
     @name = name
     @pick = [[0, 0, 0],
              [0, 0, 0],
              [0, 0, 0]]
+    @win = false
   end
 
   def to_s
