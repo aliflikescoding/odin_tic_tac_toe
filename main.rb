@@ -15,6 +15,22 @@ class User
     @win = false
   end
 
+  # method to check if a user wins
+  def check_win
+    case
+    when pick[0][0] == 1 && pick[0][1] == 1 && pick[0][2] == 1
+      self.win = true
+    when pick[1][0] == 1 && pick[1][1] == 1 && pick[1][2] == 1
+      self.win = true
+    when pick[2][0] == 1 && pick[2][1] == 1 && pick[2][2] == 1
+      self.win = true
+    when pick[0][0] == 1 && pick[1][1] == 1 && pick[2][2] == 1
+      self.win = true
+    when pick[2][0] == 1 && pick[1][1] == 1 && pick[0][2] == 1
+      self.win = true
+    end
+  end
+
   # method to choose the space
   def choose_space
     puts 'please enter your row number'
