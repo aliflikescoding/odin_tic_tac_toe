@@ -38,7 +38,7 @@ end
 # method to choose the space
 def choose_space(our_user, opposing_user)
   loop do
-    puts "it's #{our_user.name}'s turn"
+    puts "it is #{our_user.name}'s turn"
     num_row = prompt("row")
     num_col = prompt("col")
 
@@ -53,8 +53,3 @@ end
 
 user1 = User.new(name_user1)
 user2 = User.new(name_user2)
-
-choose_space(user1, user2)
-choose_space(user2, user1)
-p user1.pick
-p user2.pick
