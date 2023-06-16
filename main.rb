@@ -14,6 +14,21 @@ class User
              [0, 0, 0]]
     @win = false
   end
+
+  def check_win
+    case
+    when pick[0][0] == 1 && pick[0][1] == 1 && pick[0][2] == 1
+      true
+    when pick[1][0] == 1 && pick[1][1] == 1 && pick[1][2] == 1
+      true
+    when pick[2][0] == 1 && pick[2][1] == 1 && pick[2][2] == 1
+      true
+    when pick[0][0] == 1 && pick[1][1] == 1 && pick[2][2] == 1
+      true
+    when pick[2][0] == 1 && pick[1][1] == 1 && pick[0][2] == 1
+      true
+    end
+  end
 end
 
 # method to get number between 1 and 3
