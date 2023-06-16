@@ -20,5 +20,12 @@ class User
   end
 end
 
+# to play the game call this method
+def play_game
+    
+end
+
 user1 = User.new(name_user1)
 user2 = User.new(name_user2)
+
+
