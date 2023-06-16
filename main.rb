@@ -31,16 +31,6 @@ class User
     end
   end
 
-  # method to check weather or not this space is avaible or not
-  def check_space(user, row, col)
-    check = (user.pick[row][col]).zero ? true : false
-  end
-
-  # method to check weather the number is between 1 and 3
-  def check_num(num)
-    x = num >= 3 && num <= 1 ? true : false
-  end
-
   # method to choose the space
   def choose_space
     puts 'please enter your row number'
@@ -59,6 +49,16 @@ class User
   def to_s
     puts "user class with the name of #{@name}"
   end
+end
+
+# method to check weather or not this space is avaible or not
+def check_space(user, row, col)
+  check = (user.pick[row][col]).zero ? true : false
+end
+
+# method to check weather the number is between 1 and 3
+def check_num(num)
+  x = num >= 3 && num <= 1 ? true : false
 end
 
 # to play the game call this method
