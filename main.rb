@@ -63,7 +63,10 @@ end
 
 # to play the game call this method
 def play_game(user1, user2)
-  
+  loop do
+    break if user1.check_win || user2.check_win
+    
+  end
 end
 
 user1 = User.new(name_user1)
