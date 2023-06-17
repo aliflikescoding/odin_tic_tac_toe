@@ -73,7 +73,6 @@ end
 
 # method to change the board
 def board_change(user1, user2, str1, str2, str3)
-
   str1[0] = 'x' if user1.pick[0][0] == 1
   str1[2] = 'x' if user1.pick[0][1] == 1
   str1[4] = 'x' if user1.pick[0][2] == 1
@@ -97,7 +96,6 @@ def board_change(user1, user2, str1, str2, str3)
   str3[0] = 'o' if user2.pick[2][0] == 1
   str3[2] = 'o' if user2.pick[2][1] == 1
   str3[4] = 'o' if user2.pick[2][2] == 1
-
 end
 
 # method to print the board
@@ -116,15 +114,15 @@ def start_game(user1, user2)
   loop do
     if $current_space <= 0
       board_display(str1, str2, str3)
-      puts "it's a draw"
+      puts "\nit's a draw!!!\n"
       break
     elsif user1.check_win
       board_display(str1, str2, str3)
-      puts "#{user1.name} is the winner"
+      puts "\n#{user1.name} is the winner!!!\n"
       break
     elsif user2.check_win
       board_display(str1, str2, str3)
-      puts "#{user2.name} is the winner"
+      puts "\n#{user2.name} is the winner!!!\n"
       break
     end
 
