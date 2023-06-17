@@ -70,5 +70,33 @@ def choose_space(our_user, opposing_user)
   end
 end
 
+# method to start the game
+def start_game(user1, user2)
+  num = 0
+  loop do
+    if $current_space <= 0
+      puts "it's a draw"
+      break
+    elsif user1.check_win
+      puts "#{user1.name} is the winner"
+      break
+    elsif user2.check_win
+      puts "#{user2.name} is the winner"
+      break
+    end
+
+    if num.zero?
+      choose_space(user1, user2)
+      num = 1
+    else
+      choose_space(user2, user1)
+      num = 0
+    end
+  end
+end
+
 user1 = User.new(name_user1)
 user2 = User.new(name_user2)
+
+start_game(user1, user2)
+
