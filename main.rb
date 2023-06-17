@@ -63,11 +63,71 @@ def choose_space(our_user, opposing_user)
     if available(opposing_user, num_row, num_col)
       $current_space -= 1
       our_user.pick[num_row][num_col] = 1
+      puts "#{our_user.name} chose row #{num_row+1} and column #{num_col+1}"
       break
     else
       puts "\n**row #{num_row+1} and column #{num_col+1} are already taken please choose another**\n\n"
     end
   end
+end
+
+# method to display the tic tac toe board
+def display(user1, user2)
+  string1 = '_|_|_'
+  string2 = '_|_|_'
+  string3 = '_|_|_'
+
+  #string 1
+  case
+  when user1.pick[0][0] == 1
+    string1[0] = 'x'
+  when user2.pick[0][0] == 1
+    string1[0] = 'o'
+  when user1.pick[0][1] == 1
+    string1[2] = 'x'
+  when user2.pick[0][1] == 1
+    string1[2] = 'o'
+  when user1.pick[0][2] == 1
+    string1[4] = 'x'
+  when user2.pick[0][2] == 1
+    string1[4] = 'o'
+  end
+
+  #string 2
+  case
+  when user1.pick[1][0] == 1
+    string2[0] = 'x'
+  when user2.pick[1][0] == 1
+    string2[0] = 'o'
+  when user1.pick[1][1] == 1
+    string2[2] = 'x'
+  when user2.pick[1][1] == 1
+    string2[2] = 'o'
+  when user1.pick[1][2] == 1
+    string2[4] = 'x'
+  when user2.pick[1][2] == 1
+    string2[4] = 'o'
+  end
+
+  #string 3
+  case
+  when user1.pick[2][0] == 1
+    string3[0] = 'x'
+  when user2.pick[2][0] == 1
+    string3[0] = 'o'
+  when user1.pick[2][1] == 1
+    string3[2] = 'x'
+  when user2.pick[2][1] == 1
+    string3[2] = 'o'
+  when user1.pick[2][2] == 1
+    string3[4] = 'x'
+  when user2.pick[2][2] == 1
+    string3[4] = 'o'
+  end
+
+  puts string1
+  puts string2
+  puts string3
 end
 
 # method to start the game
@@ -86,9 +146,11 @@ def start_game(user1, user2)
     end
 
     if num.zero?
+      display(user1, user2)
       choose_space(user1, user2)
       num = 1
     else
+      display(user1, user2)
       choose_space(user2, user1)
       num = 0
     end
@@ -99,4 +161,5 @@ user1 = User.new(name_user1)
 user2 = User.new(name_user2)
 
 start_game(user1, user2)
+
 
