@@ -60,7 +60,7 @@ def choose_space(our_user, opposing_user)
     num_row = prompt("row")
     num_col = prompt("col")
 
-    if available(opposing_user, num_row, num_col)
+    if available(opposing_user, num_row, num_col) && available(our_user, num_row, num_col)
       $current_space -= 1
       our_user.pick[num_row][num_col] = 1
       puts "#{our_user.name} chose row #{num_row+1} and column #{num_col+1}"
