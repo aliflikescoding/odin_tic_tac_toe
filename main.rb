@@ -71,87 +71,72 @@ def choose_space(our_user, opposing_user)
   end
 end
 
-# method to display the tic tac toe board
-def display(user1, user2)
-  string1 = '_|_|_'
-  string2 = '_|_|_'
-  string3 = '_|_|_'
+# method to change the board
+def board_change(user1, user2, str1, str2, str3)
 
-  #string 1
-  case
-  when user1.pick[0][0] == 1
-    string1[0] = 'x'
-  when user2.pick[0][0] == 1
-    string1[0] = 'o'
-  when user1.pick[0][1] == 1
-    string1[2] = 'x'
-  when user2.pick[0][1] == 1
-    string1[2] = 'o'
-  when user1.pick[0][2] == 1
-    string1[4] = 'x'
-  when user2.pick[0][2] == 1
-    string1[4] = 'o'
-  end
+  str1[0] = 'x' if user1.pick[0][0] == 1
+  str1[2] = 'x' if user1.pick[0][1] == 1
+  str1[4] = 'x' if user1.pick[0][2] == 1
 
-  #string 2
-  case
-  when user1.pick[1][0] == 1
-    string2[0] = 'x'
-  when user2.pick[1][0] == 1
-    string2[0] = 'o'
-  when user1.pick[1][1] == 1
-    string2[2] = 'x'
-  when user2.pick[1][1] == 1
-    string2[2] = 'o'
-  when user1.pick[1][2] == 1
-    string2[4] = 'x'
-  when user2.pick[1][2] == 1
-    string2[4] = 'o'
-  end
+  str1[0] = 'o' if user2.pick[0][0] == 1
+  str1[2] = 'o' if user2.pick[0][1] == 1
+  str1[4] = 'o' if user2.pick[0][2] == 1
 
-  #string 3
-  case
-  when user1.pick[2][0] == 1
-    string3[0] = 'x'
-  when user2.pick[2][0] == 1
-    string3[0] = 'o'
-  when user1.pick[2][1] == 1
-    string3[2] = 'x'
-  when user2.pick[2][1] == 1
-    string3[2] = 'o'
-  when user1.pick[2][2] == 1
-    string3[4] = 'x'
-  when user2.pick[2][2] == 1
-    string3[4] = 'o'
-  end
+  str2[0] = 'x' if user1.pick[1][0] == 1
+  str2[2] = 'x' if user1.pick[1][1] == 1
+  str2[4] = 'x' if user1.pick[1][2] == 1
 
-  puts string1
-  puts string2
-  puts string3
+  str2[0] = 'o' if user2.pick[1][0] == 1
+  str2[2] = 'o' if user2.pick[1][1] == 1
+  str2[4] = 'o' if user2.pick[1][2] == 1
+
+  str3[0] = 'x' if user1.pick[2][0] == 1
+  str3[2] = 'x' if user1.pick[2][1] == 1
+  str3[4] = 'x' if user1.pick[2][2] == 1
+
+  str3[0] = 'o' if user2.pick[2][0] == 1
+  str3[2] = 'o' if user2.pick[2][1] == 1
+  str3[4] = 'o' if user2.pick[2][2] == 1
+
+end
+
+# method to print the board
+def board_display(str1, str2, str3)
+  puts str1
+  puts str2
+  puts str3
 end
 
 # method to start the game
 def start_game(user1, user2)
   num = 0
+  str1 = '_|_|_'
+  str2 = '_|_|_'
+  str3 = '_|_|_'
   loop do
     if $current_space <= 0
+      board_display(str1, str2, str3)
       puts "it's a draw"
       break
     elsif user1.check_win
+      board_display(str1, str2, str3)
       puts "#{user1.name} is the winner"
       break
     elsif user2.check_win
+      board_display(str1, str2, str3)
       puts "#{user2.name} is the winner"
       break
     end
 
     if num.zero?
-      display(user1, user2)
+      board_display(str1, str2, str3)
       choose_space(user1, user2)
+      board_change(user1, user2, str1, str2, str3)
       num = 1
     else
-      display(user1, user2)
+      board_display(str1, str2, str3)
       choose_space(user2, user1)
+      board_change(user1, user2, str1, str2, str3)
       num = 0
     end
   end
@@ -161,5 +146,3 @@ user1 = User.new(name_user1)
 user2 = User.new(name_user2)
 
 start_game(user1, user2)
-
-
